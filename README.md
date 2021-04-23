@@ -7,7 +7,7 @@ Games API Rawg.io - https://rawg.io/
 - Networking: [Alamofire](https://github.com/Alamofire/Alamofire)
 - Architecture: MVVM
 - Reactive Programming: [RxSwift](https://github.com/ReactiveX/RxSwift)
-- Show Image: [SDWebImageSwiftUI](https://github.com/SDWebImage/SDWebImageSwiftUI)
+- Image: [SDWebImageSwiftUI](https://github.com/SDWebImage/SDWebImageSwiftUI)
 
 ### Features
 - List Games
