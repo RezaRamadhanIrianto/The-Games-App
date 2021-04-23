@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct GameModel: Identifiable, Equatable {
+    let id: Int
+    let name: String
+    let released: String
+    
+    let imageUrl: String
+    let rating: Double
+    
+}

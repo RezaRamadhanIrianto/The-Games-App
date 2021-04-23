@@ -8,13 +8,38 @@
 import SwiftUI
 
 struct Home: View {
+    @ObservedObject var gameViewModel: GameListViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct Home_Previews: PreviewProvider {
-    static var previews: some View {
-        Home()
+        NavigationView{
+            VStack{
+                 if gameViewModel.loadingState == LoadingState.loading {
+                     Text("Loading")
+                     ActivityIndicator()
+                 } else if gameViewModel.loadingState == LoadingState.success {
+                     ScrollView(.vertical, showsIndicators: false) {
+                         ForEach(
+                             gameViewModel.games,
+                             id: \.id
+                         ) { game in
+                           ZStack {
+                               GameRow(game: game)
+                           }.padding(8)
+                         }
+                     }
+                 }
+             
+            }
+            .navigationBarTitle(
+              Text("Games Apps"),
+              displayMode: .automatic
+            )
+            .onAppear{
+                if self.gameViewModel.games.count == 0{
+                    self.gameViewModel.getGames()
+                }
+            }
+        }
+       
     }
 }

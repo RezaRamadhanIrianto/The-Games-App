@@ -12,7 +12,8 @@ enum LoadingState {
 }
 
 
-class ViewModelBase: ObservableObject {
+class BaseViewModel: ObservableObject {
     
     @Published var loadingState: LoadingState = .none
+    
 }
