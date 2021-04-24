@@ -12,7 +12,8 @@ Games API Rawg.io - https://rawg.io/
 
 ### Features
 - List Games
+- Detail Games
 
 
 ### Future
-- Detail Games
+- Beautify UI
