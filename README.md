@@ -8,6 +8,7 @@ Games API Rawg.io - https://rawg.io/
 - Architecture: MVVM
 - Reactive Programming: [RxSwift](https://github.com/ReactiveX/RxSwift)
 - Image: [SDWebImageSwiftUI](https://github.com/SDWebImage/SDWebImageSwiftUI)
+- Dependency Injection: Manual Injection
 
 ### Features
 - List Games
