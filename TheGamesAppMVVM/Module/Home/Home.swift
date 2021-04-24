@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Home: View {
-    @ObservedObject var gameViewModel: GameListViewModel
+    @ObservedObject var gameViewModel = Injection.init().provideGameVieModel()
     
     var body: some View {
         NavigationView{
@@ -23,7 +23,9 @@ struct Home: View {
                              id: \.id
                          ) { game in
                            ZStack {
-                               GameRow(game: game)
+                            NavigationLink(destination: DetailGame(game: game)){
+                                GameRow(game: game)
+                            }
                            }.padding(8)
                          }
                      }

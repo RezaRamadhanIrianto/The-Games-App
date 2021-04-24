@@ -30,6 +30,7 @@
 		752D6FDB2632AFB90024B8F8 /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D6FDA2632AFB90024B8F8 /* GameListViewModel.swift */; };
 		752D6FDE2632AFE20024B8F8 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D6FDD2632AFE20024B8F8 /* BaseViewModel.swift */; };
 		752D6FE32632B4810024B8F8 /* Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D6FE22632B4810024B8F8 /* Injection.swift */; };
+		75D4B26826345D20006CE5F4 /* DetailGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D4B26726345D20006CE5F4 /* DetailGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		752D6FDA2632AFB90024B8F8 /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
 		752D6FDD2632AFE20024B8F8 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		752D6FE22632B4810024B8F8 /* Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injection.swift; sourceTree = "<group>"; };
+		75D4B26726345D20006CE5F4 /* DetailGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,7 @@
 		752D6FA826327D880024B8F8 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				75D4B26626345CC1006CE5F4 /* Detail */,
 				752D6FA926327D940024B8F8 /* Home */,
 			);
 			path = Module;
@@ -272,6 +275,14 @@
 				752D6FDA2632AFB90024B8F8 /* GameListViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		75D4B26626345CC1006CE5F4 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				75D4B26726345D20006CE5F4 /* DetailGame.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,6 +381,7 @@
 				752D6FC62632A8DC0024B8F8 /* APICall.swift in Sources */,
 				752D6FE32632B4810024B8F8 /* Injection.swift in Sources */,
 				752D6FCD2632A9C80024B8F8 /* GameResponse.swift in Sources */,
+				75D4B26826345D20006CE5F4 /* DetailGame.swift in Sources */,
 				752D6FBF2632A63C0024B8F8 /* CustomError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
