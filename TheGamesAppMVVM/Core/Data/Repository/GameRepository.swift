@@ -9,7 +9,8 @@ import Foundation
 import RxSwift
 
 protocol GameRepositoryProtocol {
-    func getGames() -> Observable<[GameModel]>
+    func getGames(page: Int) -> Observable<[GameModel]>
+    func getDevelopers() -> Observable<[DeveloperModel]>
 }
 
 final class GameRepository: NSObject{
@@ -27,8 +28,12 @@ final class GameRepository: NSObject{
 }
 
 extension GameRepository: GameRepositoryProtocol{
-    func getGames() -> Observable<[GameModel]> {
-        return self.remote.getGames()
+    func getGames(page: Int) -> Observable<[GameModel]> {
+        return self.remote.get(url: Endpoints.Gets.games.url + "&page=\(page)")
             .map{ GameMapper.mapGameResponsesToDomains(input: $0) }
+    }
+    func getDevelopers() -> Observable<[DeveloperModel]> {
+        return self.remote.get(url: Endpoints.Gets.developers.url)
+            .map{ DeveloperMapper.mapDeveloperResponsesToDomains(input: $0) }
     }
 }

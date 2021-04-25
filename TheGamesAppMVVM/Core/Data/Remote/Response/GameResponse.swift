@@ -9,12 +9,12 @@ import Foundation
 import RxSwift
 import Alamofire
 
-struct GamesResponse: Decodable {
-    let games: [GameResponse]
-    private enum CodingKeys: String, CodingKey{
-        case games = "results"
-    }
-}
+//struct GamesResponse: Decodable {
+//    let games: [GameResponse]
+//    private enum CodingKeys: String, CodingKey{
+//        case games = "results"
+//    }
+//}
 
 struct GameResponse: Decodable {
     private enum CodingKeys: String, CodingKey{

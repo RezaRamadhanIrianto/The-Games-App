@@ -9,6 +9,8 @@ import SwiftUI
 
 struct Home: View {
     @ObservedObject var gameViewModel = Injection.init().provideGameVieModel()
+    @ObservedObject var developerViewModel = Injection.init().provideDeveloperViewModel()
+    @State var page: Int = 1;
     
     var body: some View {
         NavigationView{
@@ -16,30 +18,63 @@ struct Home: View {
                  if gameViewModel.loadingState == LoadingState.loading {
                      Text("Loading")
                      ActivityIndicator()
-                 } else if gameViewModel.loadingState == LoadingState.success {
+                 } else if gameViewModel.loadingState == LoadingState.success || gameViewModel.loadingState == LoadingState.loadingMore {
                      ScrollView(.vertical, showsIndicators: false) {
-                         ForEach(
-                             gameViewModel.games,
-                             id: \.id
-                         ) { game in
-                           ZStack {
-                            NavigationLink(destination: DetailGame(game: game)){
-                                GameRow(game: game)
+                        LazyVStack{
+                            ForEach(
+                                gameViewModel.games,
+                                id: \.id
+                            ) { game in
+                              ZStack {
+                               NavigationLink(destination: DetailGame(game: game)){
+                                   GameRow(game: game)
+                                       .onAppear{
+                                           if(gameViewModel.games.last?.id == game.id){
+//                                                if gameViewModel.loadingState != LoadingState.loadingMore{
+                                                    self.page += 1;
+//                                                }
+                                            
+                                                self.gameViewModel.getGames(page: page)
+                                                
+                                           }
+                                       }
+                               }
+                              }.padding(8)
                             }
-                           }.padding(8)
-                         }
+                            
+                            if gameViewModel.loadingState == LoadingState.loadingMore{
+                                ActivityIndicator()
+                            }
+                        }
                      }
                  }
-             
-            }
-            .navigationBarTitle(
-              Text("Games Apps"),
-              displayMode: .automatic
-            )
-            .onAppear{
+//
+//                if developerViewModel.loadingState == LoadingState.loading{
+//                    Text("Loading")
+//                    ActivityIndicator()
+//                } else if developerViewModel.loadingState == LoadingState.success{
+//                ScrollView(.vertical, showsIndicators: false) {
+//                    ForEach(
+//                        developerViewModel.developers,
+//                        id: \.id
+//
+//                    ){
+//                        dev in
+//                        ZStack {
+//
+//                            DeveloperRow(developer: dev)
+//
+//                        }.padding(8)
+//                    }
+//                }
+//                }
+            }.onAppear{
                 if self.gameViewModel.games.count == 0{
-                    self.gameViewModel.getGames()
+                    self.gameViewModel.getGames(page: page)
                 }
+//                if self.developerViewModel.developers.count == 0{
+//                    self.developerViewModel.getDev()
+//                }
             }
         }
        

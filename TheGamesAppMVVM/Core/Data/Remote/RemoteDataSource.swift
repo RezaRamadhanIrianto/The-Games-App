@@ -10,7 +10,7 @@ import Alamofire
 import RxSwift
 
 protocol RemoteDataSourceProtocol: class {
-    func getGames() -> Observable<[GameResponse]>
+    func get<Value: Decodable>(url: String) -> Observable<[Value]>
 }
 
 final class RemoteDataSource: NSObject{
@@ -20,16 +20,16 @@ final class RemoteDataSource: NSObject{
 }
 
 extension RemoteDataSource: RemoteDataSourceProtocol{
-    func getGames() -> Observable<[GameResponse]> {
-        return Observable<[GameResponse]>.create { observer in
-            if let url = URL(string: Endpoints.Gets.games.url){
+    func get<Value: Decodable>(url: String) -> Observable<[Value]> {
+        return Observable<[Value]>.create { observer in
+            if let url = URL(string: url){
                 AF.request(url)
                     .validate()
-                    .responseDecodable(of: GamesResponse.self){
+                    .responseDecodable(of: Response<Value>.self){
                         response in
                         switch response.result{
                         case .success(let value) :
-                            observer.onNext(value.games)
+                            observer.onNext(value.results)
                             observer.onCompleted()
                         case .failure :
                             observer.onError(URLError.invalidResponse)

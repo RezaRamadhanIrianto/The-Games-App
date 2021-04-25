@@ -19,4 +19,9 @@ final class Injection: NSObject {
     let repository = provideRepository()
     return GameListViewModel(repository: repository)
   }
+    
+    func provideDeveloperViewModel() -> DeveloperViewModel{
+        let repo = provideRepository()
+        return DeveloperViewModel(repository: repo)
+    }
 }

@@ -1,15 +1,15 @@
 //
-//  GameListViewModel.swift
+//  DeveloperViewModel.swift
 //  TheGamesAppMVVM
 //
-//  Created by Reza Ramadhan Irianto on 23/04/21.
+//  Created by Reza Ramadhan Irianto on 24/04/21.
 //
 
 import Foundation
 import RxSwift
 
-class GameListViewModel: BaseViewModel{
-    @Published var games = [GameModel]()
+class DeveloperViewModel: BaseViewModel{
+    @Published var developers = [DeveloperModel]()
     private let repository: GameRepositoryProtocol
     private let disposeBag = DisposeBag()
     
@@ -17,19 +17,14 @@ class GameListViewModel: BaseViewModel{
         self.repository = repository
     }
     
-    func getGames(page: Int){
-        print(page)
-        if page == 1 {
-            self.loadingState = .loading
-        }else{
-            self.loadingState = .loadingMore
-        }
+    func getDev(){
+        self.loadingState = .loading
         
-        repository.getGames(page: page)
+        repository.getDevelopers()
             .observe(on: MainScheduler.instance)
             .subscribe{
                 result in
-                self.games.append(contentsOf: result)
+                self.developers = result
             } onError: { error in
                 print(error.localizedDescription)
             } onCompleted: {
