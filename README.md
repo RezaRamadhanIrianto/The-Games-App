@@ -20,3 +20,8 @@ Games API Rawg.io - https://rawg.io/
 ### Future
 - Beautify UI
 - Local Database Using [Realm](https://github.com/realm)
+
+
+### ScreenShoots
+https://user-images.githubusercontent.com/46983732/115996518-cd0c8b80-a609-11eb-8295-2e85d00bdf63.png
+https://user-images.githubusercontent.com/46983732/115996533-d8f84d80-a609-11eb-9be6-42df33a3bee7.png
