@@ -13,7 +13,9 @@ Games API Rawg.io - https://rawg.io/
 ### Features
 - List Games
 - Detail Games
+- Pagination
 
 
 ### Future
 - Beautify UI
+- Local Database Using [Realm](https://github.com/realm)
