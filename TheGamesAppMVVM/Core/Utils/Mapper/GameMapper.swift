@@ -16,4 +16,24 @@ final class GameMapper{
             )
         }
     }
+    
+    static func mapGameResponseToEntities(input gameResponse: [GameResponse], page: Int) -> [GameEntity]{
+        return gameResponse.map{
+            result in
+            let newGame = GameEntity()
+            newGame.id = result.id ?? 0
+            newGame.imageUrl = result.image_url ?? ""
+            newGame.name = result.name ?? ""
+            newGame.rating = result.rating ?? 0.0
+            newGame.released = result.release ?? ""
+            newGame.page = page
+            return newGame
+        }
+    }
+    
+    static func mapGameEntitiesToDomain(input gameEntities: [GameEntity]) -> [GameModel]{
+        return gameEntities.map { result in
+            return GameModel(id: result.id, name: result.name, released: result.released, imageUrl: result.imageUrl, rating: result.rating)
+        }
+    }
 }

@@ -18,7 +18,7 @@ struct Home: View {
                  if gameViewModel.loadingState == LoadingState.loading {
                      Text("Loading")
                      ActivityIndicator()
-                 } else if gameViewModel.loadingState == LoadingState.success || gameViewModel.loadingState == LoadingState.loadingMore {
+                 }else{
                      ScrollView(.vertical, showsIndicators: false) {
                         LazyVStack{
                             ForEach(
@@ -30,9 +30,9 @@ struct Home: View {
                                    GameRow(game: game)
                                        .onAppear{
                                            if(gameViewModel.games.last?.id == game.id){
-//                                                if gameViewModel.loadingState != LoadingState.loadingMore{
+                                                if gameViewModel.loadingState != LoadingState.loadingMore{
                                                     self.page += 1;
-//                                                }
+                                                }
                                             
                                                 self.gameViewModel.getGames(page: page)
                                                 

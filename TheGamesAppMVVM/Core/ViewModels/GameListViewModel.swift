@@ -31,6 +31,7 @@ class GameListViewModel: BaseViewModel{
                 result in
                 self.games.append(contentsOf: result)
             } onError: { error in
+                self.loadingState = .failed
                 print(error.localizedDescription)
             } onCompleted: {
                 self.loadingState = .success
