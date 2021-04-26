@@ -19,6 +19,8 @@ Games API Rawg.io - https://rawg.io/
 
 ### Future
 - Beautify UI
+- Developer List
+- Favorite List
 
 
 ### ScreenShoots
