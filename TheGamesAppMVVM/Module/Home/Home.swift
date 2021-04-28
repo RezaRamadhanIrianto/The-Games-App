@@ -7,10 +7,14 @@
 
 import SwiftUI
 
+
 struct Home: View {
     @ObservedObject var gameViewModel = Injection.init().provideGameVieModel()
     @ObservedObject var developerViewModel = Injection.init().provideDeveloperViewModel()
     @State var page: Int = 1;
+    @State var activeSheet = false;
+    @State var developerSheet: DeveloperModel = DeveloperModel(id: 0, name: "", gamesCount: 0, imageUrl: "")
+    
     
     var body: some View {
         NavigationView{
@@ -57,6 +61,43 @@ struct Home: View {
                 .onAppear{
                     if self.gameViewModel.games.count == 0{
                         self.gameViewModel.getGames(page: page)
+                    }
+                }
+                
+                Text("LIST OF DEVELOPERS")
+                    .font(.title2)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .padding(.leading, 10)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    if developerViewModel.loadingState == LoadingState.loading {
+                        ActivityIndicator()
+                    }else{
+                        LazyHStack{
+                            ForEach(
+                                developerViewModel.developers,
+                                id: \.id
+                            ) { dev in
+                                ZStack {
+                                    DeveloperRow(developer: dev).onTapGesture {
+                                        activeSheet = true
+                                    }
+                                    .sheet(isPresented: $activeSheet){
+                                        DetailDeveloper(developer: dev)
+                                    }
+                                }.padding(2)
+                            }
+                            if developerViewModel.loadingState == LoadingState.loadingMore{
+                                ActivityIndicator()
+                            }
+                        }
+                        
+                        
+                    }
+                }.frame(height: UIScreen.main.bounds.height * 0.20)
+                .onAppear{
+                    if self.developerViewModel.developers.count == 0{
+                        self.developerViewModel.getDev()
                     }
                 }
                 Spacer()

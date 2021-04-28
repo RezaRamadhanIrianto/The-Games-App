@@ -11,23 +11,14 @@ import SDWebImageSwiftUI
 struct DeveloperRow: View {
     var developer :DeveloperModel
     var body: some View {
-        HStack(alignment: .top){
-            Group{
-                image
-            }
-            Group{
-                content
-            }
-        }
-        .frame(
-              minWidth: 0,
-              maxWidth: .infinity,
-              minHeight: 0,
-              maxHeight: .infinity,
-              alignment: .topLeading
-            )
-        .padding()
-        .background(Rectangle().cornerRadius(30).foregroundColor(.white).shadow(radius: 3))
+        ZStack(alignment: .bottom, content: {
+            image
+            content
+        })
+        .frame(width: UIScreen.main.bounds.width * 0.50,
+                 height: UIScreen.main.bounds.height * 0.20)
+        .cornerRadius(24)
+        .shadow(radius: 4)
     }
 }
 
@@ -38,31 +29,27 @@ extension DeveloperRow{
             .indicator(.activity)
             .transition(.fade(duration: 0.5))
             .scaledToFill()
-            .frame(width: 130, height: 200)
+            .frame(width: UIScreen.main.bounds.width * 0.50,
+                     height: UIScreen.main.bounds.height * 0.20)
             .cornerRadius(30)
             .padding(.top)
     }
     var content: some View{
-        VStack(alignment: .leading){
-            Text(developer.name)
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.bottom, 1)
-//            Text(developer.gamesCount)
-//                .font(.headline)
-//                .fontWeight(.medium)
-//                .padding(.bottom, 1)
-            Text("\(developer.gamesCount)")
-                .font(.title)
-                .foregroundColor(.orange)
-        }
-        .padding(.top, 30)
+        Text(developer.name)
+            .font(.title3)
+            .lineSpacing(5)
+            .lineLimit(1)
+            .padding()
+            .foregroundColor(.white)
+            .frame(width: UIScreen.main.bounds.width * 0.50)
+            .background(Color.black.opacity(0.5))
+         
     }
 }
 
 
 struct DeveloperRow_Previews: PreviewProvider {
     static var previews: some View {
-        DeveloperRow(developer: DeveloperModel(id: 0, name: "asdfa", gamesCount: 0, imageUrl: ""))
+        DeveloperRow(developer: DeveloperModel(id: 0, name: "asdfa", gamesCount: 0, imageUrl: "https://media.rawg.io/media/games/157/15742f2f67eacff546738e1ab5c19d20.jpg"))
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75032F06263918D00001FD50 /* DetailDeveloper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75032F05263918D00001FD50 /* DetailDeveloper.swift */; };
 		752D6F8226327B810024B8F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D6F8126327B810024B8F8 /* AppDelegate.swift */; };
 		752D6F8426327B810024B8F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D6F8326327B810024B8F8 /* SceneDelegate.swift */; };
 		752D6F8626327B810024B8F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D6F8526327B810024B8F8 /* ContentView.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75032F05263918D00001FD50 /* DetailDeveloper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDeveloper.swift; sourceTree = "<group>"; };
 		752D6F7E26327B810024B8F8 /* TheGamesAppMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheGamesAppMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		752D6F8126327B810024B8F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		752D6F8326327B810024B8F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				75D4B26726345D20006CE5F4 /* DetailGame.swift */,
+				75032F05263918D00001FD50 /* DetailDeveloper.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				752D6FDB2632AFB90024B8F8 /* GameListViewModel.swift in Sources */,
 				752D6FCA2632A9A10024B8F8 /* GameMapper.swift in Sources */,
 				75D4B27F26347748006CE5F4 /* DeveloperRow.swift in Sources */,
+				75032F06263918D00001FD50 /* DetailDeveloper.swift in Sources */,
 				752D6F8226327B810024B8F8 /* AppDelegate.swift in Sources */,
 				759FC9A926356E7E0063EAE4 /* LocaleDataSource.swift in Sources */,
 				752D6FD02632AAC40024B8F8 /* RemoteDataSource.swift in Sources */,
