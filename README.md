@@ -15,11 +15,13 @@ Games API Rawg.io - https://rawg.io/
 - List Games
 - Detail Games
 - Pagination
+- List Developer
+- Detail Developer
 
 
 ### Future
-- Developer List
 - Favorite List
+- Beautify
 
 
 ### ScreenShoots
