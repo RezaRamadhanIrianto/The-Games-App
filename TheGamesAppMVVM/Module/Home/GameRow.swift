@@ -11,23 +11,23 @@ import SDWebImageSwiftUI
 struct GameRow: View {
     var game :GameModel
     var body: some View {
-        HStack(alignment: .top){
-            Group{
+        VStack{
+            ZStack(alignment: .bottom, content: {
                 image
-            }
-            Group{
                 content
-            }
+            })
+            .frame(width: UIScreen.main.bounds.width * 0.30,
+                     height: UIScreen.main.bounds.height * 0.25)
+            .cornerRadius(24)
+            .shadow(radius: 4)
+            
+            Text(game.name)
+                .font(.caption)
+                .fontWeight(.medium)
+                .foregroundColor(Color.black)
+                .frame(width: UIScreen.main.bounds.width * 0.25)
+                .lineLimit(1)
         }
-        .frame(
-              minWidth: 0,
-              maxWidth: .infinity,
-              minHeight: 0,
-              maxHeight: .infinity,
-              alignment: .topLeading
-            )
-        .padding()
-        .background(Rectangle().cornerRadius(30).foregroundColor(.white).shadow(radius: 3))
     }
 }
 
@@ -36,26 +36,22 @@ extension GameRow{
         WebImage(url: URL(string: game.imageUrl))
             .resizable()
             .indicator(.activity)
-            .transition(.fade(duration: 0.5))
-            .scaledToFill()
-            .frame(width: 130, height: 200)
-            .cornerRadius(30)
-            .padding(.top)
+            .aspectRatio(contentMode: .fill)
     }
     var content: some View{
-        VStack(alignment: .leading){
-            Text(game.name)
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.bottom, 1)
-            Text(game.released)
-                .font(.headline)
-                .fontWeight(.medium)
-                .padding(.bottom, 1)
-            Label("\(game.rating)", systemImage: "star.fill")
-                .font(.title)
-                .foregroundColor(.orange)
-        }
-        .padding(.top, 30)
+        Text(game.released)
+            .font(.caption2)
+            .lineSpacing(5)
+            .lineLimit(4)
+            .padding()
+            .foregroundColor(.white)
+            .frame(width: UIScreen.main.bounds.width * 0.30)
+            .background(Color.black.opacity(0.5))
+    }
+}
+
+struct GameRow_Previews: PreviewProvider {
+    static var previews: some View{
+        GameRow(game: GameModel(id: 10, name: "GTA", released: "2020", imageUrl: "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2020/06/12/3145180756.jpg", rating: 2.9))
     }
 }

@@ -13,6 +13,6 @@ struct GameModel: Identifiable, Equatable {
     let released: String
     
     let imageUrl: String
-    let rating: Double
+    let rating: Float
     
 }

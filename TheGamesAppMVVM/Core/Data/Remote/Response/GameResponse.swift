@@ -29,5 +29,5 @@ struct GameResponse: Decodable {
     let name: String?
     let release: String?
     let image_url: String?
-    let rating: Double?
+    let rating: Float?
 }

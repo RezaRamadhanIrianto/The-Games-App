@@ -13,7 +13,7 @@ class GameEntity: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var released: String = ""
     @objc dynamic var imageUrl: String = ""
-    @objc dynamic var rating: Double = 0.0
+    @objc dynamic var rating: Float = 0.0
     @objc dynamic var page: Int = 0
     
     override static func primaryKey() -> String? {
