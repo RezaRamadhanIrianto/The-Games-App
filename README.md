@@ -1,4 +1,16 @@
-# The Games App
+<h1 align="center">
+<br/>
+The Games App
+</h1>
+<p align="center">
+  <a href="https://developer.apple.com/swift/">
+    <img src="https://img.shields.io/badge/Swift-5.0-green.svg?style=flat" alt="Swift">
+  </a>
+  
+  <a href="https://github.com/RezaRamadhanIrianto/The-Games-App/stargazers">
+    <img src="https://img.shields.io/badge/Say%20Thanks-👍-1EAEDB.svg" alt="Say thanks">
+  </a>
+</p>
 
 Games API Rawg.io - https://rawg.io/
 
